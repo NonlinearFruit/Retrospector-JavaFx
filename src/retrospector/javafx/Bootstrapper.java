@@ -20,7 +20,7 @@ import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
 import retrospector.hsqldb.datagateway.ReviewGateway;
 
-public class RetrospectorJavaFx extends Application {
+public class Bootstrapper extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {

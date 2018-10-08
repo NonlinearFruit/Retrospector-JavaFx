@@ -1,7 +1,9 @@
 package retrospector.javafx.presenter;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -12,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import retrospector.core.boundry.Presenter;
@@ -99,7 +100,7 @@ public class CrudMediaViewController implements Initializable, Presenter {
     public void mediaDeleted(int mediaId) {
         mediaViewer.getItems().removeAll(mediaId);
         if (getViewedMedia().getId() == mediaId)
-            setMediaView(new RequestableMedia("", "", ""));
+            setMediaView(getNewBlankMedia());
     }
 
     @Override
@@ -142,6 +143,12 @@ public class CrudMediaViewController implements Initializable, Presenter {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public void mediaRetrievedAll(List<RequestableMedia> media) {
+        mediaViewer.getItems().clear();
+        mediaViewer.getItems().addAll(media.stream().map(m -> m.getId()).collect(Collectors.toList()));
+    }
+    
     private RequestableMedia getNewBlankMedia() {
         return new RequestableMedia("", "", "");
     }
@@ -155,11 +162,11 @@ public class CrudMediaViewController implements Initializable, Presenter {
     }
     
     private void handleDelete(ActionEvent event) {
-        router.disseminate(new CrudMediaRequest(Crud.Delete, getViewedMedia().getId()));
+        router.disseminate(new CrudMediaRequest(Crud.Delete, mediaViewer.selectionModelProperty().get().getSelectedItems().get(0)));
     }
     
     private void handleNew(ActionEvent event) {
-        setMediaView(new RequestableMedia("", "", ""));
+        setMediaView(getNewBlankMedia());
     }
 
     private void setMediaView(RequestableMedia media) {
@@ -172,7 +179,7 @@ public class CrudMediaViewController implements Initializable, Presenter {
     }
 
     private RequestableMedia getViewedMedia() {
-        RequestableMedia media = new RequestableMedia("", "", "");
+        RequestableMedia media = getNewBlankMedia();
         media.setTitle(titleBox.getText());
         media.setSeason(seasonBox.getText());
         media.setEpisode(episodeBox.getText());
@@ -181,4 +188,5 @@ public class CrudMediaViewController implements Initializable, Presenter {
         media.setDescription(descriptionBox.getText());
         return media;
     }
+
 }
