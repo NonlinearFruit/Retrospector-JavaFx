@@ -8,13 +8,14 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Retrospector-JavaFx.jar" size="10094" download="eager" />
+    <jar href="Retrospector-JavaFx.jar" size="139411" download="eager" />
     <jar href="lib\Retrospector-Core.jar" size="61250" download="eager" />
     <jar href="lib\Retrospector-Hsqldb.jar" size="57110" download="eager" />
+    <jar href="lib\UndecoratorBis.jar" size="218682" download="eager" />
     <jar href="lib\commons-dbutils-1.6.jar" size="77857" download="eager" />
     <jar href="lib\controlsfx-8.40.12.jar" size="996389" download="eager" />
     <jar href="lib\hsqldb.jar" size="1515894" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="retrospector.javafx.RetrospectorJavaFx"  name="Retrospector-JavaFx" />
+  <jfx:javafx-desc  width="800" height="600" main-class="retrospector.javafx.startup.Bootstrapper"  name="Retrospector-JavaFx" />
   <update check="always"/>
 </jnlp>
