@@ -24,7 +24,7 @@ import retrospector.core.request.model.RequestableFactoid;
 import retrospector.core.request.model.RequestableMedia;
 import retrospector.core.request.model.RequestableReview;
 
-public class CrudMediaViewController implements Initializable, Presenter {
+public class CrudMediaController implements Initializable, Presenter {
     @FXML
     private ListView<Integer> mediaViewer;
     @FXML

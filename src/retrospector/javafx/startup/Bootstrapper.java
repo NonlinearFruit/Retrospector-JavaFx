@@ -1,7 +1,7 @@
 package retrospector.javafx.startup;
 
 import insidefx.undecorator.UndecoratorScene;
-import retrospector.javafx.presenter.CrudMediaViewController;
+import retrospector.javafx.presenter.CrudMediaController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,29 +22,29 @@ import retrospector.hsqldb.datagateway.FactoidGateway;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
 import retrospector.hsqldb.datagateway.ReviewGateway;
+import retrospector.javafx.presenter.CrudMediaView;
 
 public class Bootstrapper extends Application {
   
   @Override
   public void start(Stage stage) throws Exception {
-    FXMLLoader loader = getFXMLLoader();
+    CrudMediaView loader = getFXMLLoader();
     DbConnector connector = getConnector();
     DataGateway dataGateway = getDataGateway(connector);
     Presenter presenter = getPresenter(loader);
     RequestRouter router = getRequestRouter(presenter, dataGateway);
-    ((CrudMediaViewController) presenter).setRequestRouter(router); // TODO
+    ((CrudMediaController) presenter).setRequestRouter(router); // TODO: Afterburner.fx
     showMainStage(loader);
   }
 
   private void showSplash(Stage stage) throws Exception {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("SplashScreen.fxml"));
-    loader.load();
-    SplashScreenController controller = loader.getController();
+    SplashScreenView loader = new SplashScreenView();
+    SplashScreenController controller = (SplashScreenController) loader.getPresenter();
     controller.setTheStageAndShow(stage);
   }
 
-  private void showMainStage(FXMLLoader loader) {
-    Parent root = loader.getRoot();
+  private void showMainStage(CrudMediaView loader) {
+    Parent root = loader.getView();
     Stage mainStage = new Stage();
     UndecoratorScene.setClassicDecoration();
     UndecoratorScene undecoratorScene = new UndecoratorScene(mainStage, (Region) root);
@@ -54,23 +54,13 @@ public class Bootstrapper extends Application {
     mainStage.show();
   }
   
-  private FXMLLoader getFXMLLoader() throws Exception {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/retrospector/javafx/presenter/CrudMediaView.fxml"));
-      loader.load();
+  private CrudMediaView getFXMLLoader() throws Exception {
+      CrudMediaView loader = new CrudMediaView();
       return loader;
   }
   
-  private void showStage(Stage stage, FXMLLoader loader) {
-      Parent root = loader.getRoot();
-      Scene scene = new Scene(root);
-      stage.setScene(scene);
-      stage.show();
-  }
-  
-  private Presenter getPresenter(FXMLLoader loader) {
-      Parent root = loader.getRoot();
-      CrudMediaViewController presenter = loader.getController();
-      return presenter;
+  private Presenter getPresenter(CrudMediaView loader) {
+      return (CrudMediaController) loader.getPresenter();
   }
   
   private RequestRouter getRequestRouter(Presenter presenter, DataGateway dataGateway) {
