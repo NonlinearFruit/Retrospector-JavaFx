@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="SMI-WIN-241" name="retrospector.javafx.startup.SplashScreenControllerTest" skipped="0" tests="3" time="1.68" timestamp="2018-10-16T12:30:12">
+<testsuite errors="0" failures="1" hostname="SMI-WIN-241" name="retrospector.javafx.startup.SplashScreenControllerTest" skipped="0" tests="4" time="1.024" timestamp="2018-10-17T02:17:44">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -47,7 +47,7 @@
     <property name="user.name" value="bbolen" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.Retrospector-Hsqldb-Dependencies.javadoc" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.startup.SplashScreenControllerTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.startup.SplashScreenControllerTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher7246655507293206577.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit4141539669384290774.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.startup.SplashScreenControllerTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.startup.SplashScreenControllerTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher5953257285546967232.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit3237735476927106517.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -84,7 +84,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\null1372972447" />
+    <property name="javac.includesfile.binary" value="C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\null683288527" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\Java\jdk1.8.0_171\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/plugin.jar:../../../../../Projects/Retrospector-Hsqldb/dist/Retrospector-Hsqldb.jar:../../../../../Projects/Retrospector-Core/dist/Retrospector-Core.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\hsqldb.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\commons-dbutils-1.6.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\controlsfx-8.40.12.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\UndecoratorBis.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\afterburner.fx-1.7.0.jar:build/classes:C:\Users\bbolen\Documents\Netbeans\platform\modules\ext\junit-4.12.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\guava-18.0.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\hamcrest-all-1.3.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\jsr305-1.3.9.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\testfx-core-4.0.1-alpha.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\testfx-junit-4.0.1-alpha.jar" />
@@ -95,7 +95,6 @@
     <property name="libs.eclipselinkmodelgen.classpath" value="C:\Users\bbolen\Documents\Netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen.processor-2.5.2.jar" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.jaxb.javadoc" value="C:\Users\bbolen\Documents\Netbeans\ide\docs\jaxb-api-2.2.5-javadoc.jar" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="javac.includes.binary" value="C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\classes\retrospector\javafx\startup\SplashScreenControllerTest.class" />
     <property name="ant.home" value="C:\Users\bbolen\Documents\Netbeans\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Users\bbolen\Documents\Netbeans\platform\docs\junit-4.12-sources.jar" />
@@ -158,7 +157,6 @@
     <property name="libs.jpa20-persistence.javadoc" value="C:\Users\bbolen\Documents\Netbeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_171\jre" />
     <property name="debug.test.classpath" value="C:\Program Files\Java\jdk1.8.0_171\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/plugin.jar:../../../../../Projects/Retrospector-Hsqldb/dist/Retrospector-Hsqldb.jar:../../../../../Projects/Retrospector-Core/dist/Retrospector-Core.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\hsqldb.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\commons-dbutils-1.6.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\controlsfx-8.40.12.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\UndecoratorBis.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\afterburner.fx-1.7.0.jar:build/classes:C:\Users\bbolen\Documents\Netbeans\platform\modules\ext\junit-4.12.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\guava-18.0.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\hamcrest-all-1.3.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\jsr305-1.3.9.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\testfx-core-4.0.1-alpha.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\testfx-junit-4.0.1-alpha.jar:build/test/classes" />
-    <property name="javafx.version" value="8.0.171" />
     <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
     <property name="ant.project.default-target" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
@@ -210,7 +208,6 @@
     <property name="debug.classpath" value="dist/Retrospector-JavaFx.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_171\jre/lib/plugin.jar:../../../../../Projects/Retrospector-Hsqldb/dist/Retrospector-Hsqldb.jar:../../../../../Projects/Retrospector-Core/dist/Retrospector-Core.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\hsqldb.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\commons-dbutils-1.6.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\controlsfx-8.40.12.jar;C:\Users\bbolen\Documents\NetBeansProjects\Library\UndecoratorBis.jar:C:\Users\bbolen\Documents\NetBeansProjects\Library\afterburner.fx-1.7.0.jar:build/classes" />
     <property name="javac.external.vm" value="false" />
     <property name="javadoc.private" value="false" />
-    <property name="javafx.runtime.version" value="8.0.171-b11" />
     <property name="test.src.dir" value="test" />
     <property name="ap.processors.internal" value="" />
     <property name="meta.inf.dir" value="src/META-INF" />
@@ -236,7 +233,6 @@
     <property name="libs.CopyLibs.maven-pom" value="" />
     <property name="libs.spring-framework300.javadoc" value="" />
     <property name="libs.absolutelayout.javadoc" value="" />
-    <property name="guice.disable.misplaced.annotation.check" value="true" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="jlink.strip" value="false" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
@@ -287,8 +283,8 @@
     <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
     <property name="javac.test.compilerargs" value="" />
-    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="annotation.processing.enabled" value="true" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
     <property name="libs.jpa20-persistence.src" value="" />
     <property name="ignore.failing.tests" value="true" />
     <property name="javafx.enable.concurrent.external.runs" value="false" />
@@ -325,8 +321,8 @@
     <property name="os.version" value="10.0" />
     <property name="application.args" value="" />
     <property name="manifest.custom.permissions" value="" />
-    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="jlink.launcher.name" value="Retrospector-JavaFx" />
     <property name="javafx.deploy.allowoffline" value="true" />
@@ -362,12 +358,18 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testSetTheStageAndShow" time="1.489" />
-  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testFadeOut" time="0.031" />
-  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testInitialize" time="0.02" />
-  <system-out><![CDATA[H
-H
-H
-]]></system-out>
+  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testSetTheStageAndShow" time="0.727" />
+  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testFadeOut" time="0.036" />
+  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="testInitialize" time="0.029" />
+  <testcase classname="retrospector.javafx.startup.SplashScreenControllerTest" name="MessageProperty_Binds" time="0.074">
+    <failure message="&#xa;Expected: Node has text &quot;Hellow World...&quot;&#xa;     but: was null" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: 
+Expected: Node has text &quot;Hellow World...&quot;
+     but: was null
+	at org.testfx.api.FxAssert.verifyThatImpl(FxAssert.java:141)
+	at org.testfx.api.FxAssert.verifyThat(FxAssert.java:76)
+	at retrospector.javafx.startup.SplashScreenControllerTest.MessageProperty_Binds(SplashScreenControllerTest.java:33)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

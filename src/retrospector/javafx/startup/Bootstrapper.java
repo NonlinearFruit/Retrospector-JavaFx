@@ -1,11 +1,11 @@
 package retrospector.javafx.startup;
 
+import com.airhacks.afterburner.injection.Injector;
 import insidefx.undecorator.UndecoratorScene;
-import retrospector.javafx.presenter.CrudMediaController;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
@@ -22,18 +22,25 @@ import retrospector.hsqldb.datagateway.FactoidGateway;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
 import retrospector.hsqldb.datagateway.ReviewGateway;
+import retrospector.javafx.presenter.CrudMediaPresenter;
 import retrospector.javafx.presenter.CrudMediaView;
 
 public class Bootstrapper extends Application {
   
   @Override
   public void start(Stage stage) throws Exception {
-    CrudMediaView loader = getFXMLLoader();
+    Map<Object, Object> context = new HashMap<>(); 
+    Injector.setConfigurationSource(context::get);
+    
     DbConnector connector = getConnector();
     DataGateway dataGateway = getDataGateway(connector);
-    Presenter presenter = getPresenter(loader);
+    Presenter presenter = getPresenter();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
-    ((CrudMediaController) presenter).setRequestRouter(router); // TODO: Afterburner.fx
+    context.put("connector", connector);
+    context.put("presenter", presenter);
+    context.put("router", router);
+
+    CrudMediaView loader = getFXMLLoader();
     showMainStage(loader);
   }
 
@@ -59,8 +66,8 @@ public class Bootstrapper extends Application {
       return loader;
   }
   
-  private Presenter getPresenter(CrudMediaView loader) {
-      return (CrudMediaController) loader.getPresenter();
+  private Presenter getPresenter() {
+    return new CrudMediaPresenter();
   }
   
   private RequestRouter getRequestRouter(Presenter presenter, DataGateway dataGateway) {

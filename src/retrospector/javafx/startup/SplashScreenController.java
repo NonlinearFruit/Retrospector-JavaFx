@@ -3,6 +3,8 @@ package retrospector.javafx.startup;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -52,6 +54,14 @@ public class SplashScreenController implements Initializable {
     fadeSplash.setToValue(0.0);
     fadeSplash.setOnFinished(e -> exit());
     fadeSplash.play();
+  }
+
+  public StringProperty messageProperty() {
+    return label.textProperty();
+  }
+
+  public DoubleProperty progressProperty() {
+    return progress.progressProperty();
   }
 
   private void exit() {
