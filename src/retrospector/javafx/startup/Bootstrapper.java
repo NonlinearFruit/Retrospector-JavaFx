@@ -10,17 +10,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import retrospector.core.boundry.RequestRouter;
-import retrospector.core.datagateway.DataGateway;
-import retrospector.core.interactor.CrudFactoidUseCase;
 import retrospector.core.interactor.CrudMediaUseCase;
 import retrospector.core.interactor.CrudRequestRouter;
-import retrospector.core.interactor.CrudReviewUseCase;
-import retrospector.hsqldb.datagateway.CrudGateway;
 import retrospector.hsqldb.datagateway.DbConnector;
-import retrospector.hsqldb.datagateway.FactoidGateway;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
-import retrospector.hsqldb.datagateway.ReviewGateway;
 import retrospector.javafx.presenter.MediaPresenter;
 import retrospector.javafx.presenter.MediaView;
 
@@ -32,11 +26,11 @@ public class Bootstrapper extends Application {
     Injector.setConfigurationSource(context::get);
     
     DbConnector connector = getConnector();
-    DataGateway dataGateway = getDataGateway(connector);
+    MediaGateway dataGateway = getDataGateway(connector);
     MediaPresenter presenter = getPresenter();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
     context.put("connector", connector);
-    context.put("presenter", presenter);
+    context.put("publisher", presenter);
     context.put("router", router);
 
     MediaView loader = getFXMLLoader();
@@ -69,20 +63,14 @@ public class Bootstrapper extends Application {
     return new MediaPresenter();
   }
   
-  private RequestRouter getRequestRouter(MediaPresenter presenter, DataGateway dataGateway) {
+  private RequestRouter getRequestRouter(MediaPresenter presenter, MediaGateway dataGateway) {
       CrudMediaUseCase mediaUseCase = new CrudMediaUseCase(dataGateway, presenter);
-      CrudReviewUseCase reviewUseCase = new CrudReviewUseCase(dataGateway, null);
-      CrudFactoidUseCase factoidUseCase = new CrudFactoidUseCase(dataGateway, null);
-      
-      return new CrudRequestRouter(mediaUseCase, reviewUseCase, factoidUseCase);
+      return new CrudRequestRouter(mediaUseCase, null, null);
   }
   
-  private DataGateway getDataGateway(DbConnector connector) {
+  private MediaGateway getDataGateway(DbConnector connector) {
       MediaGateway mediaGateway = new MediaGateway(connector);
-      ReviewGateway reviewGateway = new ReviewGateway(connector);
-      FactoidGateway factoidGateway = new FactoidGateway(connector);
-      
-      return new CrudGateway(mediaGateway, reviewGateway, factoidGateway);
+      return mediaGateway;
   }
   
   private DbConnector getConnector() {
