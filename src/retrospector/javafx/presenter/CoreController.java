@@ -10,7 +10,7 @@ import javax.inject.Inject;
 public class CoreController implements Initializable {
 
   @Inject
-  CrudMediaView mediaView;
+  MediaView mediaView;
   @Inject
   ReviewView reviewView;
   @FXML

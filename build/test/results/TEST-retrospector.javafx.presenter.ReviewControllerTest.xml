@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="SMI-WIN-241" name="retrospector.javafx.presenter.ReviewControllerTest" skipped="0" tests="1" time="1.725" timestamp="2018-11-11T23:54:43">
+<testsuite errors="1" failures="0" hostname="SMI-WIN-241" name="retrospector.javafx.presenter.ReviewControllerTest" skipped="0" tests="7" time="4.223" timestamp="2018-11-17T21:31:32">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -45,7 +45,7 @@
     <property name="user.name" value="bbolen" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.Retrospector-Hsqldb-Dependencies.javadoc" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.presenter.ReviewControllerTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.presenter.ReviewControllerTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher5505440056949856409.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit2167437891878310762.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.presenter.ReviewControllerTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.presenter.ReviewControllerTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher1654593887836053221.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit456917267020681254.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -353,8 +353,25 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="f" time="1.52" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="rating_AdjustsWithRatingBox" time="1.551" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="deleteButton_ClearsValues" time="0.973" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="stars_AdjustsWithRatingBox" time="0.141" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="saveButton_SendsCreate_WhenNewReview" time="0.374" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="saveButton_SendsReview" time="0.339">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at retrospector.javafx.presenter.ReviewControllerTest.verifyAreEqual(ReviewControllerTest.java:161)
+	at retrospector.javafx.presenter.ReviewControllerTest.saveButton_SendsReview(ReviewControllerTest.java:80)
+</error>
+  </testcase>
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="initialize_ClearsValues" time="0.06" />
+  <testcase classname="retrospector.javafx.presenter.ReviewControllerTest" name="cancelButton_ClearsValues" time="0.449" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
+File: review.css not found, attempting with camel case
 ]]></system-err>
 </testsuite>

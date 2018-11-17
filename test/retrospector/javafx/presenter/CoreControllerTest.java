@@ -37,7 +37,7 @@ public class CoreControllerTest extends ApplicationTest {
   public void start(Stage stage) throws Exception {
     Injector.setConfigurationSource(context::get);
     
-    addToContext(mediaViewVariable, CrudMediaView.class);
+    addToContext(mediaViewVariable, MediaView.class);
     addToContext(reviewViewVariable, ReviewView.class);
 
     stage.setScene(new Scene(new CoreView().getView()));

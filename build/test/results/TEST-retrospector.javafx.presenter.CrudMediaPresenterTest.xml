@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="SMI-WIN-241" name="retrospector.javafx.presenter.CrudMediaPresenterTest" skipped="0" tests="8" time="0.218" timestamp="2018-11-11T23:54:40">
+<testsuite errors="0" failures="0" hostname="SMI-WIN-241" name="retrospector.javafx.presenter.CrudMediaPresenterTest" skipped="0" tests="8" time="0.229" timestamp="2018-11-12T00:29:50">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -45,7 +45,7 @@
     <property name="user.name" value="bbolen" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.Retrospector-Hsqldb-Dependencies.javadoc" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.presenter.CrudMediaPresenterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.presenter.CrudMediaPresenterTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher4106905628955936946.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit8543829792163906196.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner retrospector.javafx.presenter.CrudMediaPresenterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\test\results\TEST-retrospector.javafx.presenter.CrudMediaPresenterTest.xml crashfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junitvmwatcher8221571637857170807.properties propsfile=C:\Users\bbolen\Documents\NetBeansProjects\Retrospector-JavaFx\build\junit5668737975428706770.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -353,14 +353,14 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaAdded_CallsListener" time="0.071" />
-  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaUpdated_CallsListener" time="0.001" />
+  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaAdded_CallsListener" time="0.074" />
+  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaUpdated_CallsListener" time="0.0" />
   <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaAdded_CallsMultipleListeners" time="0.0" />
-  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaUpdated_CallsMultipleListeners" time="0.0" />
+  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaUpdated_CallsMultipleListeners" time="0.001" />
   <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaRetrieved_CallsMultipleListeners" time="0.001" />
   <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaRetrieved_CallsListener" time="0.001" />
   <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaDeleted_CallsMultipleListeners" time="0.001" />
-  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaDeleted_CallsListener" time="0.001" />
+  <testcase classname="retrospector.javafx.presenter.CrudMediaPresenterTest" name="mediaDeleted_CallsListener" time="0.002" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

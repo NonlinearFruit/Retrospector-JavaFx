@@ -22,7 +22,7 @@ import retrospector.core.request.model.RequestableFactoid;
 import retrospector.core.request.model.RequestableMedia;
 import retrospector.core.request.model.RequestableReview;
 
-public class CrudMediaController implements Initializable {
+public class MediaController implements Initializable {
   @FXML
   private ListView<Integer> mediaViewer;
   @FXML
@@ -49,7 +49,7 @@ public class CrudMediaController implements Initializable {
   @Inject
   private RequestRouter router;
   @Inject
-  private CrudMediaPublisher publisher;
+  private MediaPublisher publisher;
 
   private ObjectProperty<RequestableMedia> currentMedia;
   private Integer currentMediaId;

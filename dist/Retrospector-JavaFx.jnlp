@@ -8,8 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Retrospector-JavaFx.jar" size="145959" download="eager" />
-    <jar href="lib\Retrospector-Core.jar" size="61250" download="eager" />
+    <jar href="Retrospector-JavaFx.jar" size="153701" download="eager" />
+    <jar href="lib\Retrospector-Core.jar" size="64087" download="eager" />
     <jar href="lib\Retrospector-Hsqldb.jar" size="57110" download="eager" />
     <jar href="lib\UndecoratorBis.jar" size="218682" download="eager" />
     <jar href="lib\afterburner.fx-1.7.0.jar" size="22551" download="eager" />

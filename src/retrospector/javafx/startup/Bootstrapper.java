@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import retrospector.core.boundry.Presenter;
 import retrospector.core.boundry.RequestRouter;
 import retrospector.core.datagateway.DataGateway;
 import retrospector.core.interactor.CrudFactoidUseCase;
@@ -22,8 +21,8 @@ import retrospector.hsqldb.datagateway.FactoidGateway;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
 import retrospector.hsqldb.datagateway.ReviewGateway;
-import retrospector.javafx.presenter.CrudMediaPresenter;
-import retrospector.javafx.presenter.CrudMediaView;
+import retrospector.javafx.presenter.MediaPresenter;
+import retrospector.javafx.presenter.MediaView;
 
 public class Bootstrapper extends Application {
   
@@ -34,13 +33,13 @@ public class Bootstrapper extends Application {
     
     DbConnector connector = getConnector();
     DataGateway dataGateway = getDataGateway(connector);
-    Presenter presenter = getPresenter();
+    MediaPresenter presenter = getPresenter();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
     context.put("connector", connector);
     context.put("presenter", presenter);
     context.put("router", router);
 
-    CrudMediaView loader = getFXMLLoader();
+    MediaView loader = getFXMLLoader();
     showMainStage(loader);
   }
 
@@ -50,7 +49,7 @@ public class Bootstrapper extends Application {
     controller.setTheStageAndShow(stage);
   }
 
-  private void showMainStage(CrudMediaView loader) {
+  private void showMainStage(MediaView loader) {
     Parent root = loader.getView();
     Stage mainStage = new Stage();
     UndecoratorScene.setClassicDecoration();
@@ -61,19 +60,19 @@ public class Bootstrapper extends Application {
     mainStage.show();
   }
   
-  private CrudMediaView getFXMLLoader() throws Exception {
-      CrudMediaView loader = new CrudMediaView();
+  private MediaView getFXMLLoader() throws Exception {
+      MediaView loader = new MediaView();
       return loader;
   }
   
-  private Presenter getPresenter() {
-    return new CrudMediaPresenter();
+  private MediaPresenter getPresenter() {
+    return new MediaPresenter();
   }
   
-  private RequestRouter getRequestRouter(Presenter presenter, DataGateway dataGateway) {
+  private RequestRouter getRequestRouter(MediaPresenter presenter, DataGateway dataGateway) {
       CrudMediaUseCase mediaUseCase = new CrudMediaUseCase(dataGateway, presenter);
-      CrudReviewUseCase reviewUseCase = new CrudReviewUseCase(dataGateway, presenter);
-      CrudFactoidUseCase factoidUseCase = new CrudFactoidUseCase(dataGateway, presenter);
+      CrudReviewUseCase reviewUseCase = new CrudReviewUseCase(dataGateway, null);
+      CrudFactoidUseCase factoidUseCase = new CrudFactoidUseCase(dataGateway, null);
       
       return new CrudRequestRouter(mediaUseCase, reviewUseCase, factoidUseCase);
   }

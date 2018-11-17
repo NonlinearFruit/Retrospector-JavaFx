@@ -2,18 +2,18 @@ package retrospector.javafx.presenter;
 
 import java.util.ArrayList;
 import java.util.List;
-import retrospector.core.boundry.Presenter;
+import retrospector.core.boundry.CrudPresenter;
 import retrospector.core.boundry.Request;
 import retrospector.core.boundry.RequestRouter;
 import retrospector.core.interactor.CrudMediaRequest;
 import static retrospector.core.interactor.CrudRequest.Crud.Create;
 import retrospector.core.request.model.RequestableMedia;
 
-public class RequestRouterTestDouble implements RequestRouter {
-  private Presenter presenter;
+public class MediaRequestRouterTestDouble implements RequestRouter {
+  private CrudPresenter<RequestableMedia> presenter;
   private List<Request> list;
   
-  public RequestRouterTestDouble(Presenter presenter) {
+  public MediaRequestRouterTestDouble(CrudPresenter<RequestableMedia> presenter) {
     this.list = new ArrayList<>();
     this.presenter = presenter;
   }
@@ -37,6 +37,6 @@ public class RequestRouterTestDouble implements RequestRouter {
 
   private void processCreate(RequestableMedia media) {
     media.setId(15);
-    presenter.mediaAdded(media);
+    presenter.added(media);
   }
 }

@@ -9,11 +9,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.testfx.framework.junit.ApplicationTest;
 
-public class CrudMediaViewTest extends ApplicationTest {
+public class MediaViewTest extends ApplicationTest {
   
   @Test
   public void GetView_Works() {
-    CrudMediaView loader = new CrudMediaView();
+    MediaView loader = new MediaView();
 
     Parent parent = loader.getView();
 
@@ -22,9 +22,9 @@ public class CrudMediaViewTest extends ApplicationTest {
 
   @Test
   public void GetPresenter_Works() {
-    CrudMediaView loader = new CrudMediaView();
+    MediaView loader = new MediaView();
 
-    CrudMediaController controller = (CrudMediaController) loader.getPresenter();
+    MediaController controller = (MediaController) loader.getPresenter();
 
     assertNotNull(controller);
   }
@@ -34,10 +34,10 @@ public class CrudMediaViewTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
 
-    CrudMediaPresenter presenter = new CrudMediaPresenter();
+    MediaPresenter presenter = new MediaPresenter();
     context.put("publisher", presenter);
 
-    RequestRouterTestDouble router = new RequestRouterTestDouble(presenter);
+    MediaRequestRouterTestDouble router = new MediaRequestRouterTestDouble(presenter);
     context.put("router", router);
   }
 }

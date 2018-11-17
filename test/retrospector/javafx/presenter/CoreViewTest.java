@@ -37,7 +37,7 @@ public class CoreViewTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
 
-    CrudMediaView view = mock(CrudMediaView.class);
+    MediaView view = mock(MediaView.class);
     when(view.getView()).thenReturn(new HBox());
     context.put("mediaView", view);
 

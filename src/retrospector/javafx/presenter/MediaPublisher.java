@@ -3,7 +3,7 @@ package retrospector.javafx.presenter;
 import java.util.function.Consumer;
 import retrospector.core.request.model.RequestableMedia;
 
-public interface CrudMediaPublisher {
+public interface MediaPublisher {
   
   public void addMediaAddedListener(Consumer<RequestableMedia> consumer);
 

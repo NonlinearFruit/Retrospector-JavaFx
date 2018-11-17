@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.junit.Before;
 import retrospector.core.request.model.RequestableMedia;
 
-public class CrudMediaPresenterTest {
+public class MediaPresenterTest {
 
-  private CrudMediaPresenter presenter;
+  private MediaPresenter presenter;
   private int consumeMediaCount;
   private RequestableMedia consumedMedia;
   private int consumeIdCount;
@@ -15,7 +15,7 @@ public class CrudMediaPresenterTest {
   
   @Before
   public void before() {
-    presenter = new CrudMediaPresenter();
+    presenter = new MediaPresenter();
     consumeMediaCount = 0;
   }
   
@@ -24,7 +24,7 @@ public class CrudMediaPresenterTest {
     RequestableMedia media = new RequestableMedia("Hound of the Baskervilles", "Arthor Doyle", "Book");
 
     presenter.addMediaAddedListener(this::consumeMedia);
-    presenter.mediaAdded(media);
+    presenter.added(media);
 
     assertEquals(1, consumeMediaCount);
     assertEquals(media, consumedMedia);
@@ -37,7 +37,7 @@ public class CrudMediaPresenterTest {
     int numberOfListeners = 10;
     for (int i = 0; i < numberOfListeners; i++)
       presenter.addMediaAddedListener(this::consumeMedia);
-    presenter.mediaAdded(media);
+    presenter.added(media);
 
     assertEquals(numberOfListeners, consumeMediaCount);
   }
@@ -47,7 +47,7 @@ public class CrudMediaPresenterTest {
     RequestableMedia media = new RequestableMedia("Hound of the Baskervilles", "Arthor Doyle", "Book");
 
     presenter.addMediaRetrievedListener(this::consumeMedia);
-    presenter.mediaRetrieved(media);
+    presenter.retrieved(media);
 
     assertEquals(1, consumeMediaCount);
     assertEquals(media, consumedMedia);
@@ -60,7 +60,7 @@ public class CrudMediaPresenterTest {
     int numberOfListeners = 10;
     for (int i = 0; i < numberOfListeners; i++)
       presenter.addMediaRetrievedListener(this::consumeMedia);
-    presenter.mediaRetrieved(media);
+    presenter.retrieved(media);
 
     assertEquals(numberOfListeners, consumeMediaCount);
   }
@@ -70,7 +70,7 @@ public class CrudMediaPresenterTest {
     RequestableMedia media = new RequestableMedia("Hound of the Baskervilles", "Arthor Doyle", "Book");
 
     presenter.addMediaUpdatedListener(this::consumeMedia);
-    presenter.mediaUpdated(media);
+    presenter.updated(media);
 
     assertEquals(1, consumeMediaCount);
     assertEquals(media, consumedMedia);
@@ -83,7 +83,7 @@ public class CrudMediaPresenterTest {
     int numberOfListeners = 10;
     for (int i = 0; i < numberOfListeners; i++)
       presenter.addMediaUpdatedListener(this::consumeMedia);
-    presenter.mediaUpdated(media);
+    presenter.updated(media);
 
     assertEquals(numberOfListeners, consumeMediaCount);
   }
@@ -93,7 +93,7 @@ public class CrudMediaPresenterTest {
     int mediaId = 5;
 
     presenter.addMediaDeletedListener(this::consumeId);
-    presenter.mediaDeleted(mediaId);
+    presenter.deleted(mediaId);
 
     assertEquals(1, consumeIdCount);
     assertEquals(mediaId, consumedId);
@@ -106,7 +106,7 @@ public class CrudMediaPresenterTest {
     int numberOfListeners = 10;
     for (int i = 0; i < numberOfListeners; i++)
       presenter.addMediaUpdatedListener(this::consumeMedia);
-    presenter.mediaUpdated(media);
+    presenter.updated(media);
 
     assertEquals(numberOfListeners, consumeMediaCount);
   }

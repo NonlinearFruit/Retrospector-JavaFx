@@ -14,10 +14,10 @@ import retrospector.core.interactor.CrudMediaRequest;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.request.model.RequestableMedia;
 
-public class CrudMediaControllerTest extends ApplicationTest {
+public class MediaControllerTest extends ApplicationTest {
 
-  private RequestRouterTestDouble router;
-  private CrudMediaPresenter presenter;
+  private MediaRequestRouterTestDouble router;
+  private MediaPresenter presenter;
   private String filler = "x";
   private String saveButton = "#saveButton";
   private String newButton = "#newButton";
@@ -35,13 +35,13 @@ public class CrudMediaControllerTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
     
-    presenter = new CrudMediaPresenter();
+    presenter = new MediaPresenter();
     context.put("publisher", presenter);
     
-    router = new RequestRouterTestDouble(presenter);
+    router = new MediaRequestRouterTestDouble(presenter);
     context.put("router", router);
 
-    CrudMediaView loader = new CrudMediaView();
+    MediaView loader = new MediaView();
 
     stage.setScene(new Scene(loader.getView()));
     stage.show();
