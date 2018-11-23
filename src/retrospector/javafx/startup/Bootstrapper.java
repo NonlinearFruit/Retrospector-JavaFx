@@ -1,5 +1,7 @@
 package retrospector.javafx.startup;
 
+import retrospector.javafx.view.splash.SplashScreenView;
+import retrospector.javafx.view.splash.SplashScreenController;
 import com.airhacks.afterburner.injection.Injector;
 import insidefx.undecorator.UndecoratorScene;
 import java.util.HashMap;
@@ -17,7 +19,7 @@ import retrospector.hsqldb.datagateway.DbConnector;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
 import retrospector.javafx.presenter.CrudRetaliator;
-import retrospector.javafx.presenter.MediaView;
+import retrospector.javafx.view.media.MediaView;
 
 public class Bootstrapper extends Application {
   
@@ -26,15 +28,14 @@ public class Bootstrapper extends Application {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
     
-    DbConnector connector = getConnector();
-    MediaGateway dataGateway = getDataGateway(connector);
-    CrudRetaliator<RequestableMedia> presenter = getPresenter();
+    DbConnector connector = new DbConnector(PropertyGateway.connectionString);
+    MediaGateway dataGateway = new MediaGateway(connector);
+    CrudRetaliator<RequestableMedia> presenter = new CrudRetaliator<>();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
-    context.put("connector", connector);
     context.put("publisher", presenter);
     context.put("router", router);
 
-    MediaView loader = getFXMLLoader();
+    MediaView loader = new MediaView();
     showMainStage(loader);
   }
 
@@ -55,31 +56,12 @@ public class Bootstrapper extends Application {
     mainStage.show();
   }
   
-  private MediaView getFXMLLoader() throws Exception {
-      MediaView loader = new MediaView();
-      return loader;
-  }
-  
-  private CrudRetaliator<RequestableMedia> getPresenter() {
-    return new CrudRetaliator<>();
-  }
-  
   private RequestRouter getRequestRouter(CrudRetaliator<RequestableMedia> presenter, MediaGateway dataGateway) {
       CrudMediaUseCase mediaUseCase = new CrudMediaUseCase(dataGateway, presenter);
       return new CrudRequestRouter(mediaUseCase, null, null);
   }
   
-  private MediaGateway getDataGateway(DbConnector connector) {
-      MediaGateway mediaGateway = new MediaGateway(connector);
-      return mediaGateway;
-  }
-  
-  private DbConnector getConnector() {
-      return new DbConnector(PropertyGateway.connectionString);
-  }
-
   public static void main(String[] args) {
       launch(args);
   }
-    
 }

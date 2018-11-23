@@ -1,5 +1,6 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.media;
 
+import retrospector.javafx.view.media.MediaView;
 import com.airhacks.afterburner.injection.Injector;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,7 @@ import static org.testfx.matcher.base.NodeMatchers.hasText;
 import retrospector.core.interactor.CrudMediaRequest;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.request.model.RequestableMedia;
+import retrospector.javafx.presenter.CrudRetaliator;
 
 public class MediaControllerTest extends ApplicationTest {
 
@@ -26,7 +28,6 @@ public class MediaControllerTest extends ApplicationTest {
       "#creatorBox",
       "#seasonBox",
       "#episodeBox",
-      "#categoryBox",
       "#descriptionBox"
     };
 
@@ -76,7 +77,6 @@ public class MediaControllerTest extends ApplicationTest {
     assertEquals(filler, media.getCreator());
     assertEquals(filler, media.getSeason());
     assertEquals(filler, media.getEpisode());
-    assertEquals(filler, media.getCategory());
     assertEquals(filler, media.getDescription());
   }
 

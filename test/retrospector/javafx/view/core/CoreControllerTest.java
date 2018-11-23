@@ -1,5 +1,8 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.core;
 
+import retrospector.javafx.view.review.ReviewView;
+import retrospector.javafx.view.media.MediaView;
+import retrospector.javafx.view.core.CoreView;
 import com.airhacks.afterburner.injection.Injector;
 import com.airhacks.afterburner.views.FXMLView;
 import java.util.HashMap;

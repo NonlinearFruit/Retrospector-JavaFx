@@ -1,5 +1,6 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.review;
 
+import retrospector.javafx.view.review.ReviewView;
 import com.airhacks.afterburner.injection.Injector;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -18,6 +19,8 @@ import org.testfx.framework.junit.ApplicationTest;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.interactor.CrudReviewRequest;
 import retrospector.core.request.model.RequestableReview;
+import retrospector.javafx.presenter.CrudRetaliator;
+import retrospector.javafx.view.ResourceBundleTestDouble;
 
 public class ReviewControllerTest extends ApplicationTest {
 

@@ -1,4 +1,4 @@
-package retrospector.javafx.startup;
+package retrospector.javafx.view.splash;
 
 import java.net.URL;
 import java.util.ResourceBundle;

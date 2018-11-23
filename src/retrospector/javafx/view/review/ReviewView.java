@@ -1,4 +1,4 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.review;
 
 import com.airhacks.afterburner.views.FXMLView;
 import java.util.ResourceBundle;

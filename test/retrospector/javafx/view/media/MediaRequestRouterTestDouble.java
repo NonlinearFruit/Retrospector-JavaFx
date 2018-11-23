@@ -1,4 +1,4 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.media;
 
 import java.util.ArrayList;
 import java.util.List;

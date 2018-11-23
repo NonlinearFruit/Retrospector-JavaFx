@@ -1,4 +1,4 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.review;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -18,6 +18,7 @@ import retrospector.core.boundry.RequestRouter;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.interactor.CrudReviewRequest;
 import retrospector.core.request.model.RequestableReview;
+import retrospector.javafx.presenter.CrudPublisher;
 
 public class ReviewController implements Initializable {
 

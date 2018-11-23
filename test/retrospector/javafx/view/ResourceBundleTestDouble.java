@@ -1,4 +1,4 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view;
 
 import java.util.Enumeration;
 import java.util.ResourceBundle;

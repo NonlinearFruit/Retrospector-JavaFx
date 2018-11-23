@@ -1,5 +1,7 @@
 package retrospector.javafx.startup;
 
+import retrospector.javafx.view.splash.SplashScreenView;
+import retrospector.javafx.view.splash.SplashScreenController;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import static org.junit.Assert.assertNotNull;

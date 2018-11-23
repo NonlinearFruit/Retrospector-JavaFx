@@ -1,5 +1,7 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.media;
 
+import retrospector.javafx.view.media.MediaView;
+import retrospector.javafx.view.media.MediaController;
 import com.airhacks.afterburner.injection.Injector;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.testfx.framework.junit.ApplicationTest;
 import retrospector.core.request.model.RequestableMedia;
+import retrospector.javafx.presenter.CrudRetaliator;
 
 public class MediaViewTest extends ApplicationTest {
   

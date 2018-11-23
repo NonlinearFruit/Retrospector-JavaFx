@@ -1,5 +1,7 @@
-package retrospector.javafx.presenter;
+package retrospector.javafx.view.review;
 
+import retrospector.javafx.view.review.ReviewView;
+import retrospector.javafx.view.review.ReviewController;
 import com.airhacks.afterburner.injection.Injector;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,8 @@ import retrospector.core.boundry.RequestRouter;
 import retrospector.core.request.model.RequestableReview;
 import retrospector.javafx.bundles.BundleType;
 import retrospector.javafx.bundles.BundleUtils;
+import retrospector.javafx.presenter.CrudRetaliator;
+import retrospector.javafx.view.ResourceBundleTestDouble;
 
 public class ReviewViewTest extends ApplicationTest {
 

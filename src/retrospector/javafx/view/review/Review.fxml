@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.Rating?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="retrospector.javafx.presenter.ReviewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="retrospector.javafx.view.review.ReviewController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
