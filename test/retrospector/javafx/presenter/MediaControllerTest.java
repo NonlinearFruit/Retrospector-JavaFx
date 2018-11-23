@@ -17,7 +17,7 @@ import retrospector.core.request.model.RequestableMedia;
 public class MediaControllerTest extends ApplicationTest {
 
   private MediaRequestRouterTestDouble router;
-  private MediaPresenter presenter;
+  private CrudRetaliator<RequestableMedia> presenter;
   private String filler = "x";
   private String saveButton = "#saveButton";
   private String newButton = "#newButton";
@@ -35,7 +35,7 @@ public class MediaControllerTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
     
-    presenter = new MediaPresenter();
+    presenter = new CrudRetaliator<>();
     context.put("publisher", presenter);
     
     router = new MediaRequestRouterTestDouble(presenter);

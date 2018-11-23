@@ -49,7 +49,7 @@ public class MediaController implements Initializable {
   @Inject
   private RequestRouter router;
   @Inject
-  private MediaPublisher publisher;
+  private CrudPublisher<RequestableMedia> publisher;
 
   private ObjectProperty<RequestableMedia> currentMedia;
   private Integer currentMediaId;
@@ -78,7 +78,7 @@ public class MediaController implements Initializable {
     deleteButton.setOnAction(this::handleDelete);
     newButton.setOnAction(this::handleNew);
 
-    publisher.addMediaAddedListener(this::mediaAdded);
+    publisher.addAddedListener(this::mediaAdded);
   }   
   
   public void mediaAdded(RequestableMedia media) {

@@ -17,15 +17,23 @@ import org.controlsfx.control.Rating;
 import retrospector.core.boundry.RequestRouter;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.interactor.CrudReviewRequest;
+import retrospector.core.request.model.RequestableReview;
 
 public class ReviewController implements Initializable {
 
   private String saveKey = "save";
   private String deleteKey = "delete";
   private String cancelKey = "cancel";
+  private String userKey = "user";
+  private String dateKey = "date";
+  private String reviewKey = "review";
+
+  private Integer reviewId;
 
   @Inject
   private RequestRouter router;
+  @Inject
+  private CrudPublisher<RequestableReview> reviewPublisher;
   
   @FXML
   private Text maxRating;
@@ -54,25 +62,48 @@ public class ReviewController implements Initializable {
     deleteButton.setText(rb.getString(deleteKey));
     cancelButton.setText(rb.getString(cancelKey));
 
+    userBox.setPromptText(rb.getString(userKey));
+    dateBox.setPromptText(rb.getString(dateKey));
+    descriptionBox.setPromptText(rb.getString(reviewKey));
+
+    saveButton.setOnAction(this::handleSave);
+    deleteButton.setOnAction(this::handleDelete);
+    cancelButton.setOnAction(this::handleCancel);
+
     rating.textProperty().bind(ratingBox.valueProperty().asString());
     stars.ratingProperty().bind(ratingBox.valueProperty());
+
+    reviewPublisher.addAddedListener(this::setReview);
 
     clearBoxes();
   }  
 
-  @FXML
   private void handleSave(ActionEvent event) {
-    router.disseminate(new CrudReviewRequest(Crud.Create));
+    RequestableReview review = getReview();
+    Crud crud = Crud.Update;
+    if (reviewId == null)
+      crud = Crud.Create;
+    router.disseminate(new CrudReviewRequest(crud, review));
   }
 
-  @FXML
   private void handleDelete(ActionEvent event) {
     clearBoxes();
   }
 
-  @FXML
   private void handleCancel(ActionEvent event) {
     clearBoxes();
+  }
+
+  private void setReview(RequestableReview review) {
+    reviewId = review.getId();
+  }
+
+  private RequestableReview getReview() {
+    Integer rating = (int) ratingBox.getValue();
+    String user = userBox.getText();
+    LocalDate date = dateBox.getValue();
+    String description = descriptionBox.getText();
+    return new RequestableReview(rating, date, user, description);
   }
 
   private void clearBoxes() {

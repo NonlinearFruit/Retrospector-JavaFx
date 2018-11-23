@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.testfx.framework.junit.ApplicationTest;
+import retrospector.core.request.model.RequestableMedia;
 
 public class MediaViewTest extends ApplicationTest {
   
@@ -34,7 +35,7 @@ public class MediaViewTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
 
-    MediaPresenter presenter = new MediaPresenter();
+    CrudRetaliator<RequestableMedia> presenter = new CrudRetaliator<>();
     context.put("publisher", presenter);
 
     MediaRequestRouterTestDouble router = new MediaRequestRouterTestDouble(presenter);

@@ -12,10 +12,11 @@ import javafx.stage.Stage;
 import retrospector.core.boundry.RequestRouter;
 import retrospector.core.interactor.CrudMediaUseCase;
 import retrospector.core.interactor.CrudRequestRouter;
+import retrospector.core.request.model.RequestableMedia;
 import retrospector.hsqldb.datagateway.DbConnector;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
-import retrospector.javafx.presenter.MediaPresenter;
+import retrospector.javafx.presenter.CrudRetaliator;
 import retrospector.javafx.presenter.MediaView;
 
 public class Bootstrapper extends Application {
@@ -27,7 +28,7 @@ public class Bootstrapper extends Application {
     
     DbConnector connector = getConnector();
     MediaGateway dataGateway = getDataGateway(connector);
-    MediaPresenter presenter = getPresenter();
+    CrudRetaliator<RequestableMedia> presenter = getPresenter();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
     context.put("connector", connector);
     context.put("publisher", presenter);
@@ -59,11 +60,11 @@ public class Bootstrapper extends Application {
       return loader;
   }
   
-  private MediaPresenter getPresenter() {
-    return new MediaPresenter();
+  private CrudRetaliator<RequestableMedia> getPresenter() {
+    return new CrudRetaliator<>();
   }
   
-  private RequestRouter getRequestRouter(MediaPresenter presenter, MediaGateway dataGateway) {
+  private RequestRouter getRequestRouter(CrudRetaliator<RequestableMedia> presenter, MediaGateway dataGateway) {
       CrudMediaUseCase mediaUseCase = new CrudMediaUseCase(dataGateway, presenter);
       return new CrudRequestRouter(mediaUseCase, null, null);
   }
