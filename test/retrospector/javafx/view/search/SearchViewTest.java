@@ -1,4 +1,4 @@
-package retrospector.javafx.view.review;
+package retrospector.javafx.view.search;
 
 import com.airhacks.afterburner.injection.Injector;
 import java.util.ArrayList;
@@ -9,37 +9,33 @@ import java.util.ResourceBundle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.testfx.framework.junit.ApplicationTest;
-import retrospector.core.boundry.RequestRouter;
-import retrospector.core.request.model.RequestableReview;
-import retrospector.javafx.bundles.BundleType;
-import retrospector.javafx.bundles.BundleUtils;
-import retrospector.javafx.presenter.CrudRetaliator;
 import retrospector.javafx.view.ResourceBundleTestDouble;
 
-public class ReviewViewTest extends ApplicationTest {
-
+public class SearchViewTest extends ApplicationTest {
   private Stage stage;
-  private String saveButtonId = "#saveButton";
+  private String resultsId = "#results";
+  private String newButtonId = "#newButton";
+  private String editButtonId = "#editButton";
   private String deleteButtonId = "#deleteButton";
-  private String cancelButtonId = "#cancelButton";
-  private String userBoxId = "#userBox";
-  private String descriptionBoxId = "#descriptionBox";
-  private String dateBoxId = "#dateBox";
+  private String resultsDisplayId = "#resultsDisplay";
+  private String meanDisplayId = "#meanDisplay";
+  private String currentDisplayId = "#currentDisplay";
   private ResourceBundle bundle = new ResourceBundleTestDouble();
   private String[] keys = new String[]{
-            "save", "delete", "cancel", "date", "review", "user" 
+            "title", "creator", "season", "episode", "category", "reviews", "delete", "new", "edit", "results", "average", "current"
           };
   
   @Test
   public void getView_Works() {
-    ReviewView loader = new ReviewView(bundle);
+    SearchView loader = new SearchView(bundle);
 
     Parent parent = loader.getView();
 
@@ -48,23 +44,22 @@ public class ReviewViewTest extends ApplicationTest {
 
   @Test
   public void getPresenter_Works() {
-    ReviewView loader = new ReviewView(bundle);
+    SearchView loader = new SearchView(bundle);
 
-    ReviewController controller = (ReviewController) loader.getPresenter();
+    SearchController controller = (SearchController) loader.getPresenter();
 
     assertNotNull(controller);
   }
 
   @Test
   public void setBundle_Works() {
-    for (ResourceBundle bundle : BundleUtils.getResourceBundles(BundleType.Core)) {
-      ReviewView loader = new ReviewView(bundle);
+    ResourceBundle bundle = new ResourceBundleTestDouble();
+    SearchView loader = new SearchView(bundle);
 
-      Parent parent = loader.getView();
-      interact(showStage(parent));
+    Parent parent = loader.getView();
+    interact(showStage(parent));
 
-      verifyTranslationIsDisplayed(bundle);
-    }
+    verifyTranslationIsDisplayed(bundle);
   }
 
   @Override
@@ -72,12 +67,6 @@ public class ReviewViewTest extends ApplicationTest {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
 
-    CrudRetaliator<RequestableReview> presenter = new CrudRetaliator<>();
-    context.put("reviewPublisher", presenter);
-    
-    RequestRouter router = new ReviewRequestRouterTestDouble(presenter);
-    context.put("router", router);
-    
     this.stage = stage;
   }
 
@@ -97,12 +86,20 @@ public class ReviewViewTest extends ApplicationTest {
 
   private List<String> getDisplayedStrings() {
     List<String> strings = new ArrayList<>();
-    strings.add(lookup(saveButtonId).<Button>queryFirst().getText());
+    TableView table = lookup(resultsId).<TableView>queryFirst();
+    List columns = table.getColumns();
+    columns.forEach(c -> {
+      TableColumn column = (TableColumn) c;
+      strings.add(column.getText());
+      column.getColumns().forEach(
+        x -> strings.add(((TableColumn) x).getText()));
+    });
+    strings.add(lookup(newButtonId).<Button>queryFirst().getText());
+    strings.add(lookup(editButtonId).<Button>queryFirst().getText());
     strings.add(lookup(deleteButtonId).<Button>queryFirst().getText());
-    strings.add(lookup(cancelButtonId).<Button>queryFirst().getText());
-    strings.add(lookup(userBoxId).<TextField>queryFirst().getPromptText());
-    strings.add(lookup(descriptionBoxId).<TextArea>queryFirst().getPromptText());
-    strings.add(lookup(dateBoxId).<DatePicker>queryFirst().getPromptText());
+    strings.add(lookup(resultsDisplayId).<Text>queryFirst().getText());
+    strings.add(lookup(meanDisplayId).<Text>queryFirst().getText());
+    strings.add(lookup(currentDisplayId).<Text>queryFirst().getText());
     return strings;
   }
 
@@ -112,4 +109,5 @@ public class ReviewViewTest extends ApplicationTest {
       strings.add(bundle.getString(key));
     return strings;
   }
+  
 }
