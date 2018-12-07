@@ -25,6 +25,7 @@ public class SearchController implements Initializable {
   private String episodeKey = "episode";
   private String categoryKey = "category";
   private String reviewsKey = "reviews";
+  private String ratingKey = "rating";
   
   @FXML
   private VBox anchor;
@@ -85,6 +86,7 @@ public class SearchController implements Initializable {
     episodeColumn.setText(rb.getString(episodeKey));
     categoryColumn.setText(rb.getString(categoryKey));
     reviewsColumn.setText(rb.getString(reviewsKey));
+    ratingColumn.setText(rb.getString(ratingKey));
     meanRatingColumn.setText(rb.getString(meanKey));
     currentRatingColumn.setText(rb.getString(currentKey));
   }  

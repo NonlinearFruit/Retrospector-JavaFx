@@ -30,7 +30,7 @@ public class SearchViewTest extends ApplicationTest {
   private String currentDisplayId = "#currentDisplay";
   private ResourceBundle bundle = new ResourceBundleTestDouble();
   private String[] keys = new String[]{
-            "title", "creator", "season", "episode", "category", "reviews", "delete", "new", "edit", "results", "average", "current"
+            "title", "creator", "season", "episode", "category", "reviews", "delete", "new", "edit", "results", "average", "current", "rating"
           };
   
   @Test
@@ -109,5 +109,4 @@ public class SearchViewTest extends ApplicationTest {
       strings.add(bundle.getString(key));
     return strings;
   }
-  
 }

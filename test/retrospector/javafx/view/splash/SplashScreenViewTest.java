@@ -1,4 +1,4 @@
-package retrospector.javafx.startup;
+package retrospector.javafx.view.splash;
 
 import retrospector.javafx.view.splash.SplashScreenView;
 import retrospector.javafx.view.splash.SplashScreenController;

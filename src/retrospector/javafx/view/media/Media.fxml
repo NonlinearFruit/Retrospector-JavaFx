@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,55 +13,38 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.Rating?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="retrospector.javafx.view.media.MediaController">
+<VBox fx:id="anchor" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="retrospector.javafx.view.media.MediaController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
             <VBox alignment="CENTER" HBox.hgrow="SOMETIMES">
                <children>
-                  <Rating fx:id="stars">
-                     <tooltip>
-                        <Tooltip text="Current rating by default user" />
-                     </tooltip>
-                  </Rating>
+                  <Rating fx:id="stars" />
                </children>
             </VBox>
             <VBox alignment="CENTER">
                <children>
-                  <HBox fx:id="mediaTitleBox">
+                  <HBox>
                      <children>
                         <TextField fx:id="titleBox" promptText="Title" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="newButton" mnemonicParsing="false" text="New">
-                           <tooltip>
-                              <Tooltip text="New Media" />
-                           </tooltip>
-                        </Button>
+                        <Button fx:id="newButton" mnemonicParsing="false" text="New" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="by " />
                         <TextField fx:id="creatorBox" promptText="Creator" />
                      </children>
                   </HBox>
-                  <HBox fx:id="mediaSeasonBox">
+                  <HBox>
                      <children>
                         <TextField fx:id="seasonBox" promptText="Season" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="newSeasonButton" mnemonicParsing="false" text="Add">
-                           <tooltip>
-                              <Tooltip text="Add new Season" />
-                           </tooltip>
-                        </Button>
+                        <Button fx:id="newSeasonButton" mnemonicParsing="false" text="Add" />
                      </children>
                   </HBox>
-                  <HBox fx:id="mediaEpisodeBox">
+                  <HBox>
                      <children>
                         <TextField fx:id="episodeBox" promptText="Episode" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="newEpisodeButton" mnemonicParsing="false" text="Add">
-                           <tooltip>
-                              <Tooltip text="Add new Episode" />
-                           </tooltip>
-                        </Button>
+                        <Button fx:id="newEpisodeButton" mnemonicParsing="false" text="Add" />
                      </children>
                   </HBox>
                </children>
@@ -87,19 +69,19 @@
             </VBox>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <children>
             <VBox prefHeight="383.0" spacing="3.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+                  <Text fx:id="categoryDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
                   <ChoiceBox fx:id="categoryBox" prefWidth="150.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+                  <Text fx:id="typeDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
                   <ChoiceBox fx:id="typeBox" prefWidth="150.0" />
                   <HBox alignment="BOTTOM_CENTER">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+                        <Text fx:id="descriptionDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                         <Pane HBox.hgrow="ALWAYS" />
-                        <Button fx:id="autofillBtn" mnemonicParsing="false" onAction="#autofill" style="-fx-background-radius: 0; -fx-border-style: null; -fx-background-color: null;" />
+                        <Button fx:id="pluginButton" mnemonicParsing="false" onAction="#autofill" style="-fx-background-radius: 0; -fx-border-style: null; -fx-background-color: null;" />
                      </children>
                   </HBox>
                   <TextArea fx:id="descriptionBox" prefHeight="200.0" prefWidth="200.0" wrapText="true" VBox.vgrow="ALWAYS" />
@@ -107,7 +89,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" VBox.vgrow="NEVER">
          <children>
             <Button fx:id="previousButton" mnemonicParsing="false" text="&lt;&lt;">
                <HBox.margin>

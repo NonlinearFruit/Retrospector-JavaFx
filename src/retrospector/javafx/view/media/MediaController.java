@@ -11,11 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javax.inject.Inject;
 import org.controlsfx.control.Rating;
@@ -28,7 +26,20 @@ import retrospector.core.request.model.RequestableReview;
 import retrospector.javafx.presenter.CrudPublisher;
 
 public class MediaController implements Initializable {
-  
+
+  private String titleKey = "title";
+  private String creatorKey = "creator";
+  private String seasonKey = "season";
+  private String episodeKey = "episode";
+  private String descriptionKey = "description";
+  private String saveKey = "save";
+  private String deleteKey = "delete";
+  private String newKey = "new";
+  private String addKey = "add";
+  private String cancelKey = "cancel";
+  private String categoryKey = "category";
+  private String typeKey = "type";
+
   @Inject
   private RequestRouter router;
   @Inject
@@ -62,13 +73,7 @@ public class MediaController implements Initializable {
   @FXML
   private Rating stars;
   @FXML
-  private HBox mediaTitleBox;
-  @FXML
-  private HBox mediaSeasonBox;
-  @FXML
   private Button newSeasonButton;
-  @FXML
-  private HBox mediaEpisodeBox;
   @FXML
   private Button newEpisodeButton;
   @FXML
@@ -76,16 +81,39 @@ public class MediaController implements Initializable {
   @FXML
   private Text mediaMaxRating;
   @FXML
-  private Button autofillBtn;
-  @FXML
   private Button previousButton;
   @FXML
   private Button cancelButton;
   @FXML
   private Button nextButton;
-  
+  @FXML
+  private VBox anchor;
+  @FXML
+  private Text categoryDisplay;
+  @FXML
+  private Text typeDisplay;
+  @FXML
+  private Text descriptionDisplay;
+  @FXML
+  private Button pluginButton;
+
   @Override
   public void initialize(URL url, ResourceBundle rb) {
+    titleBox.setPromptText(rb.getString(titleKey));
+    creatorBox.setPromptText(rb.getString(creatorKey));
+    seasonBox.setPromptText(rb.getString(seasonKey));
+    episodeBox.setPromptText(rb.getString(episodeKey));
+    descriptionBox.setPromptText(rb.getString(descriptionKey));
+    saveButton.setText(rb.getString(saveKey));
+    deleteButton.setText(rb.getString(deleteKey));
+    newButton.setText(rb.getString(newKey));
+    newSeasonButton.setText(rb.getString(addKey));
+    newEpisodeButton.setText(rb.getString(addKey));
+    cancelButton.setText(rb.getString(cancelKey));
+    categoryDisplay.setText(rb.getString(categoryKey));
+    typeDisplay.setText(rb.getString(typeKey));
+    descriptionDisplay.setText(rb.getString(descriptionKey));
+
     reviews = FXCollections.observableArrayList();
     factoids = FXCollections.observableArrayList();
     currentMedia = new SimpleObjectProperty();
@@ -97,13 +125,13 @@ public class MediaController implements Initializable {
         )
     );
     typeBox.setValue(RequestableMedia.RequestableType.SINGLE);
+
     saveButton.setOnAction(this::handleSave);
     deleteButton.setOnAction(this::handleDelete);
     newButton.setOnAction(this::handleNew);
-
     publisher.addAddedListener(this::mediaAdded);
-  }   
-  
+  }
+
   public void mediaAdded(RequestableMedia media) {
     setMediaView(media);
   }
@@ -115,16 +143,16 @@ public class MediaController implements Initializable {
   public void mediaUpdated(RequestableMedia media) {
     setMediaView(media);
   }
-  
+
   public void mediaDeleted(int mediaId) {
     if (getViewedMedia().getId() == mediaId)
       setMediaView(getNewBlankMedia());
   }
-  
+
   private RequestableMedia getNewBlankMedia() {
     return new RequestableMedia("", "", "");
   }
-    
+
   private void handleSave(ActionEvent event) {
     RequestableMedia media = getViewedMedia();
     Crud crud = Crud.Update;
@@ -132,11 +160,11 @@ public class MediaController implements Initializable {
       crud = Crud.Create;
     router.disseminate(new CrudMediaRequest(crud, media));
   }
-  
+
   private void handleDelete(ActionEvent event) {
     router.disseminate(new CrudMediaRequest(Crud.Delete, currentMediaId));
   }
-  
+
   private void handleNew(ActionEvent event) {
     setMediaView(getNewBlankMedia());
   }

@@ -3,9 +3,11 @@ package retrospector.javafx.startup;
 import retrospector.javafx.view.splash.SplashScreenView;
 import retrospector.javafx.view.splash.SplashScreenController;
 import com.airhacks.afterburner.injection.Injector;
+import com.airhacks.afterburner.views.FXMLView;
 import insidefx.undecorator.UndecoratorScene;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -18,8 +20,12 @@ import retrospector.core.request.model.RequestableMedia;
 import retrospector.hsqldb.datagateway.DbConnector;
 import retrospector.hsqldb.datagateway.MediaGateway;
 import retrospector.hsqldb.datagateway.PropertyGateway;
+import retrospector.javafx.bundles.BundleType;
+import retrospector.javafx.bundles.BundleUtils;
 import retrospector.javafx.presenter.CrudRetaliator;
+import retrospector.javafx.view.core.CoreView;
 import retrospector.javafx.view.media.MediaView;
+import retrospector.javafx.view.search.SearchView;
 
 public class Bootstrapper extends Application {
   
@@ -28,15 +34,17 @@ public class Bootstrapper extends Application {
     Map<Object, Object> context = new HashMap<>(); 
     Injector.setConfigurationSource(context::get);
     
+    ResourceBundle bundle = BundleUtils.getResourceBundle(BundleType.Core, "ru");
     DbConnector connector = new DbConnector(PropertyGateway.connectionString);
     MediaGateway dataGateway = new MediaGateway(connector);
     CrudRetaliator<RequestableMedia> presenter = new CrudRetaliator<>();
     RequestRouter router = getRequestRouter(presenter, dataGateway);
     context.put("publisher", presenter);
     context.put("router", router);
+    context.put("mediaView", new MediaView(bundle));
+    context.put("searchView", new SearchView(bundle));
 
-    MediaView loader = new MediaView();
-    showMainStage(loader);
+    showMainStage(new CoreView(bundle));
   }
 
   private void showSplash(Stage stage) throws Exception {
@@ -45,7 +53,7 @@ public class Bootstrapper extends Application {
     controller.setTheStageAndShow(stage);
   }
 
-  private void showMainStage(MediaView loader) {
+  private void showMainStage(FXMLView loader) {
     Parent root = loader.getView();
     Stage mainStage = new Stage();
     UndecoratorScene.setClassicDecoration();

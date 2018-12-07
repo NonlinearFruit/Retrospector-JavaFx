@@ -1,5 +1,6 @@
 package retrospector.javafx.bundles;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -19,6 +20,15 @@ public class BundleUtils {
 		return bundles;
 	}
 
+  public static ResourceBundle getResourceBundle(BundleType type, String language) {
+    return BundleUtils
+            .getResourceBundles(type)
+            .stream()
+            .filter((b)->IsCorrectBundle(b, language))
+            .findFirst()
+            .get();
+  }
+
 	private static ResourceBundle tryToGetResourceBundle(BundleType bundleType, Locale locale) {
 		try {
 			return getResourceBundle(bundleType, locale);
@@ -29,5 +39,14 @@ public class BundleUtils {
 	private static ResourceBundle getResourceBundle(BundleType bundleType, Locale locale) {
 		String path = bundlePath + bundleType.name().toLowerCase();
 		return ResourceBundle.getBundle(path, locale);
+	}
+	
+	private static boolean IsCorrectBundle(ResourceBundle bundle, String language) {
+		return bundle
+            .getLocale()
+            .getLanguage()
+            .equals(
+                    new Locale(language).getLanguage()
+            );
 	}
 }

@@ -1,6 +1,5 @@
 package retrospector.javafx.view.media;
 
-import retrospector.javafx.view.media.MediaView;
 import com.airhacks.afterburner.injection.Injector;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +14,7 @@ import retrospector.core.interactor.CrudMediaRequest;
 import retrospector.core.interactor.CrudRequest.Crud;
 import retrospector.core.request.model.RequestableMedia;
 import retrospector.javafx.presenter.CrudRetaliator;
+import retrospector.javafx.view.ResourceBundleTestDouble;
 
 public class MediaControllerTest extends ApplicationTest {
 
@@ -42,7 +42,7 @@ public class MediaControllerTest extends ApplicationTest {
     router = new MediaRequestRouterTestDouble(presenter);
     context.put("router", router);
 
-    MediaView loader = new MediaView();
+    MediaView loader = new MediaView(new ResourceBundleTestDouble());
 
     stage.setScene(new Scene(loader.getView()));
     stage.show();

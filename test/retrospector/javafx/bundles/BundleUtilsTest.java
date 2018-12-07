@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class BundleUtilsTest {
@@ -45,6 +46,16 @@ public class BundleUtilsTest {
     for (ResourceBundle bundle : BundleUtils.getResourceBundles(type))
       while (keys.hasMoreElements())
         VerifyBundleHasKey(bundle, keys.nextElement());
+  }
+
+  @Test
+  public void getResourceBundle_Works() {
+    BundleType type = BundleType.Core;
+    String language = "en";
+
+    ResourceBundle bundle = BundleUtils.getResourceBundle(type, language);
+
+    assertTrue(isEnglishBundle(bundle));
   }
 
   private void VerifyBundleHasKey(ResourceBundle bundle, String key) {

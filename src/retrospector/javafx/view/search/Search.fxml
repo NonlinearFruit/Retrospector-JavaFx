@@ -36,11 +36,11 @@
             <Button fx:id="editButton" mnemonicParsing="false" text="Edit" />
             <Button fx:id="deleteButton" mnemonicParsing="false" text="Delete" />
             <Pane HBox.hgrow="ALWAYS" />
-            <Text fx:id="resultsDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="Results: " />
+            <Text fx:id="resultsDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="Results" />
             <Text fx:id="resultsCount" strokeType="OUTSIDE" strokeWidth="0.0" text="--" />
-            <Text fx:id="meanDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text=" | Mean:" />
+            <Text fx:id="meanDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text=" Mean" />
             <Text fx:id="meanRating" strokeType="OUTSIDE" strokeWidth="0.0" text="--" />
-            <Text fx:id="currentDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text=" | Current:" />
+            <Text fx:id="currentDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text=" Current" />
             <Text fx:id="meanCurrentRating" strokeType="OUTSIDE" strokeWidth="0.0" text="--" />
          </children>
       </HBox>
