@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+apply plugin: 'maven'
+
+mainClassName = 'retrospector.javafx.startup.Boostrapper'
+
+repositories {
+  jcenter()
+  maven { url 'https://jitpack.io'}
+}
+
+dependencies {
+  // https://jitpack.io/com/github/NonlinearFruit/Retrospector-Core/master-SNAPSHOT/build.log
+  compile 'com.github.NonlinearFruit:Retrospector-Core:master-SNAPSHOT'
+  compile 'com.github.NonlinearFruit:Retrospector-Hsqldb:master-SNAPSHOT'
+  compile 'com.airhacks:afterburner.fx:1.7.0'
+  compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.14'
+  testCompile 'junit:junit:4.12'
+  testCompile group: 'org.mockito', name: 'mockito-core', version: '2.19.0'
+  testCompile "org.testfx:testfx-junit:4.0.1-alpha"
+  testCompile "org.testfx:openjfx-monocle:8u76-b04"
+}
+
+test {
+    jvmArgs "-Dtestfx.robot=glass -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw"
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}

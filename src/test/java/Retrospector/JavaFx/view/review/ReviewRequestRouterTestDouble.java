@@ -5,8 +5,8 @@ import java.util.List;
 import retrospector.core.boundry.CrudPresenter;
 import retrospector.core.boundry.Request;
 import retrospector.core.boundry.RequestRouter;
-import retrospector.core.interactor.CrudRequest;
-import retrospector.core.interactor.CrudRequest.Crud;
+import retrospector.core.interactor.crud.CrudRequest;
+import retrospector.core.interactor.crud.CrudRequest.Crud;
 import retrospector.core.request.model.RequestableReview;
 
 public class ReviewRequestRouterTestDouble implements RequestRouter {

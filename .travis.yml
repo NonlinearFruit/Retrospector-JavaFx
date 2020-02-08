@@ -1,0 +1,15 @@
+language: java
+install: true
+
+jdk:
+  - oraclejdk8
+env:
+  - _JAVA_OPTIONS="-Dtestfx.robot=awt"
+
+script:
+  - chmod +x gradlew
+  - ./gradlew build
+
+after_success:
+  - ./gradlew jacocoTestReport
+  - bash <(curl -s https://codecov.io/bash)

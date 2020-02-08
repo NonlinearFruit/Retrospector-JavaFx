@@ -15,8 +15,8 @@ import javafx.scene.text.Text;
 import javax.inject.Inject;
 import org.controlsfx.control.Rating;
 import retrospector.core.boundry.RequestRouter;
-import retrospector.core.interactor.CrudRequest.Crud;
-import retrospector.core.interactor.CrudReviewRequest;
+import retrospector.core.interactor.crud.CrudRequest.Crud;
+import retrospector.core.interactor.crud.CrudReviewRequest;
 import retrospector.core.request.model.RequestableReview;
 import retrospector.javafx.presenter.CrudPublisher;
 
