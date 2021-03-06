@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retrospector.Maui", "Retrospector.Maui\Retrospector.Maui.csproj", "{8CB7FDFA-85DB-42AA-A59C-1F1853B3DB54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retrospector.Maui.Tests", "Retrospector.Maui.Tests\Retrospector.Maui.Tests.csproj", "{3AA862A6-49B2-4BF0-AB06-54AB14D54EAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CB7FDFA-85DB-42AA-A59C-1F1853B3DB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB7FDFA-85DB-42AA-A59C-1F1853B3DB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB7FDFA-85DB-42AA-A59C-1F1853B3DB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB7FDFA-85DB-42AA-A59C-1F1853B3DB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA862A6-49B2-4BF0-AB06-54AB14D54EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA862A6-49B2-4BF0-AB06-54AB14D54EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA862A6-49B2-4BF0-AB06-54AB14D54EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA862A6-49B2-4BF0-AB06-54AB14D54EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
